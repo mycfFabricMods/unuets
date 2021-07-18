@@ -17,7 +17,7 @@ public class unnuets implements ModInitializer {
 
 	public static final String modid = "unnuets";
 
-	public static final Item COOKED_EGG = new Item(new Item.Settings().fireproof().food(FoodComponents.COOKED_EGG_COMPONENT).group(ItemGroup.FOOD));
+	public static final Item COOKED_EGG = new Item(new Item.Settings().fireproof().food(FoodComponents.COOKED_EGG_COMPONENT).maxCount(15).group(ItemGroup.FOOD));
 	public static final Item RUBY = new RubyItem(new Item.Settings().fireproof().group(ItemGroup.MISC));
 	public static final Block RUBY_CLUSTER = registerBlocks("ruby_cluster", new RubyClusterBlock(AbstractBlock.Settings.copy(Blocks.MAGMA_BLOCK)
 			.luminance(state -> 6)
