@@ -3,15 +3,17 @@ package mycf.unnuets;
 import mycf.unnuets.block.RubyClusterBlock;
 import mycf.unnuets.food_components.FoodComponents;
 import mycf.unnuets.item.RubyItem;
+import mycf.unnuets.item.UnnuetsToolMaterials;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
+import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+
+import javax.tools.Tool;
 
 public class unnuets implements ModInitializer {
 
@@ -23,10 +25,16 @@ public class unnuets implements ModInitializer {
 			.luminance(state -> 6)
 			.strength(10.0f)));
 
+	// cool one time use sword or something
+	public static final SwordItem EGG_SWORD = new SwordItem(UnnuetsToolMaterials.EggToolMaterial.INSTANCE, 5, 5f, new Item.Settings().group(ItemGroup.FOOD));
+	public static final ToolItem RUBY_TOOL = new ToolItem(UnnuetsToolMaterials.RubyToolMaterial.INSTANCE, new FabricItemSettings().group(ItemGroup.TOOLS).maxCount(1));
+
 	@Override
 	public void onInitialize() {
 		Registry.register(Registry.ITEM, new Identifier(modid, "cooked_egg"), COOKED_EGG);
 		Registry.register(Registry.ITEM, new Identifier(modid, "ruby"), RUBY);
+		Registry.register(Registry.ITEM, new Identifier(modid, "egg_sword"), EGG_SWORD);
+		Registry.register(Registry.ITEM, new Identifier(modid, "ruby_tool"), RUBY_TOOL);
 	}
 
 	/*
@@ -38,3 +46,7 @@ public class unnuets implements ModInitializer {
 		return Registry.register(Registry.BLOCK, new Identifier(modid, id), block);
 	}
 }
+/* TODO
+create utility classes and methods for better registry of items and blocks and blockitems
+create more art for all the stuff
+*/
